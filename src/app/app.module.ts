@@ -19,6 +19,10 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -32,7 +36,11 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    NavbarComponent,
+    ProfileViewComponent,
+    SynopsisCardComponent,
+    UserEditComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service'
-
-
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SynopsisCardComponent } from '../synopsis-card/synopsis-card.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class MovieCardComponent {
   movies: any[] = [];
   currentUser: any = null;
   currentFavs: any = null;
-  constructor(public fetchApiData: FetchApiDataService) { }
+  constructor(public fetchApiData: FetchApiDataService, public dialog: MatDialog, public snackBar: MatSnackBar, public router: Router) { }
   
 ngOnInit(): void {
   this.getMovies();
@@ -31,9 +33,18 @@ getMovies(): void {
       return this.movies;
     });
   }
- 
   
-
+  openSynopsis(title: string, imagePath: any, description: string): void {
+    this.dialog.open(SynopsisCardComponent, {
+      data: {
+        Title: title,
+        ImagePath: imagePath,
+        Description: description,
+      },
+      width: '500px'
+    });
+   
+  }
   getCurrentUser(): void {
     const username = localStorage.getItem('user');
     this.fetchApiData.getUser(username).subscribe((resp: any) => {
