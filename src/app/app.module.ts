@@ -43,6 +43,7 @@ const appRoutes: Routes = [
     UserEditComponent
   ],
   imports: [
+    MatIconModule,
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     AppRoutingModule,

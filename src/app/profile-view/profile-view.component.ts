@@ -46,23 +46,8 @@ export class ProfileViewComponent implements OnInit {
     });
    
   }
-  openDirectorDialog(name: string, bio: string, birth: string): void {
-    this.dialog.open(DirectorCardComponent, {
-      data: {Name: name, Bio: bio, Birth: birth},
-      width: '500px',
-    });
-  }
-  // Open Genre View
-  openGenreDialog(name: string, description: string): void {
-    this.dialog.open(GenreCardComponent, {
-      data: {
-        Name: name,
-        Description: description,
-      },
-      width: '500px'
-    });
-  }
 
+ 
   getUser(): void {
     const user = localStorage.getItem('user');
     if (user) {
